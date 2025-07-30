@@ -234,7 +234,7 @@ async function page1() {
             points_hitbox.on('mouseover', function(d, i) {
                 const index = worldData.indexOf(d);
 
-                d3.select(points.nodes()[index]).style("cursor", "pointer"); 
+                d3.select(this).style("cursor", "pointer"); 
 
                 d3.select(points.nodes()[index])
                     .transition()
@@ -253,7 +253,7 @@ async function page1() {
             points_hitbox.on('mouseout', function(d, i) {
                 const index = worldData.indexOf(d);
 
-                d3.select(points.nodes()[index]).style("cursor", "default"); 
+                d3.select(this).style("cursor", "default"); 
 
                 d3.select(points.nodes()[index])
                     .transition()
