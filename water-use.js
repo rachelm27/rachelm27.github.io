@@ -273,7 +273,7 @@ async function page2() {
         });
 
         // axes
-        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([0, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000]).tickFormat((d,i) => ["0B", "200B", "400B", "600B", "800B", "1T", "1.2T", "1.4T", "1.6T", "1.8T", "2T", "2.2T", "2.4T", "2.6T", "2.8T", "3.T"][i]));
+        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([0, 400, 800, 1200, 1600, 2000, 2400, 2800, 3000]).tickFormat((d,i) => ["0B", "400B", "800B", "1.2T", "1.6T", "2T", "2.4T", "2.8T", "3.T"][i]));
         d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([2000, 2005, 2010, 2015, 2022]).tickFormat(d3.format("c")));
         
         // title
@@ -298,7 +298,7 @@ async function page2() {
         d3.select("svg").append("text")
             .attr("class", "y label")
             .attr("text-anchor", "end")
-            .attr("y", 6)
+            .attr("y", 0)
             .attr("dy", ".75em")
             .attr("x", -100)
             .attr("transform", "rotate(-90)")
