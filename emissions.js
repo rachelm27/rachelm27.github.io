@@ -286,11 +286,10 @@ async function page1() {
         d3.select("svg").append("text")
             .attr("class", "title")
             .attr("text-anchor", "end")
-            .attr("x", 300)
+            .attr("x", 500)
             .attr("y", 50)
             .style("font-weight", 500)
             .style("font-size", 12)
-            .style("fill", "gray")
             .text("Hover over points for more details");
 
         // x axis label
