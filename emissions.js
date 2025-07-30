@@ -286,7 +286,7 @@ async function page1() {
         d3.select("svg").append("text")
             .attr("class", "title")
             .attr("text-anchor", "end")
-            .attr("x", 500)
+            .attr("x", 550)
             .attr("y", 50)
             .style("font-weight", 500)
             .style("font-size", 12)
