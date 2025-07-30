@@ -1,5 +1,5 @@
-function page1() {
-    return async function init() {
+// function page1() {
+    async function page1() {
         var data = d3.csv("https://ourworldindata.org/grapher/ghg-emissions-by-sector.csv?v=1&csvType=full&useColumnShortNames=true", function(d) {
         d.Year = +d.Year;
         d.agriculture_ghg_emissions = +d.agriculture_ghg_emissions;
@@ -335,4 +335,4 @@ function page1() {
                 .style("font-size", "14px");
         });
     }
-}
+// }
