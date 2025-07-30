@@ -321,6 +321,7 @@ async function page1() {
             .attr("cy", function(d,i){ return 50 + i*25})
             .attr("r", 7)
             .style("fill", function(d, i){ return colors[i]})
+            .style("cursor", "default");
 
         legend.selectAll("labels")
         .data(keys)
