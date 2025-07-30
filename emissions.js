@@ -287,9 +287,11 @@ async function page1() {
             .attr("class", "title")
             .attr("text-anchor", "end")
             .attr("x", 650)
-            .attr("y", 25)
+            .attr("y", 50)
             .style("font-weight", 500)
-            .text("Worldwide Greenhouse Gas Emissions by Sector");
+            .style("font-size", 12)
+            .style("color", "gray")
+            .text("Hover over points for more details");
 
         // x axis label
         d3.select("svg").append("text")
