@@ -57,9 +57,9 @@ async function page2() {
                 title: "2005-2006",
                 wrap: 215
             },
-            data: { Year: 2005.5, Water: 2500 },
-            dy: 100,
-            dx: 0,
+            data: { Year: 2005.5, Water: 2540 },
+            dy: 70,
+            dx: -1,
             subject: {
                 radius: 30,
                 radiusPadding: 3
