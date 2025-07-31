@@ -167,7 +167,7 @@ async function page1() {
 
         const annotations4 = [{
             note: {
-                label: "Agriculture contributes to 11.6% of total emissions for the year, and has 17.86% (888.5M) more emissions than in 1990.",
+                label: "Agriculture peaks in emissions at 5.86B tonnes, and has 17.86% (888.5M) more emissions than in 1990.",
                 title: "2021",
                 wrap: 215
             },
