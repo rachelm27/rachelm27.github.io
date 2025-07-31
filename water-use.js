@@ -31,19 +31,11 @@ async function page2() {
         // https://observablehq.com/@d3/color-schemes
         const colors = ["#4269d0","#ff725c","#6cc5b0"]
 
-        var testYearData = worldData.filter(d => d.Year === 2000);
-        console.log(testYearData);
 
         function getPercentTotal(colName, year) {
-            const yearData = worldData.filter(d => d.Year === year);
-
-            if (colName === "agricultural_water_withdrawal") {
-                return "agricultural_water_withdrawal_as_percent_of_total_water_withdrawal";
-            } else if (colName === "industrial_water_withdrawal") {
-                return "industrial_water_withdrawal_as_percent_of_total_water_withdrawal";
-            } else if (colName === "municipal_water_withdrawal") {
-                return "municipal_water_withdrawal_as_percent_of_total_withdrawal";
-            }
+            if (colName === "agricultural_water_withdrawal") return "agricultural_water_withdrawal_as_percent_of_total_water_withdrawal";
+            else if (colName === "industrial_water_withdrawal") return "industrial_water_withdrawal_as_percent_of_total_water_withdrawal";
+            else if (colName === "municipal_water_withdrawal") return "municipal_water_withdrawal_as_percent_of_total_withdrawal";
         }
 
         var idx = 0;
@@ -251,7 +243,7 @@ async function page2() {
                 tooltip.transition()
                     .duration(100)
                     .style("opacity", 1);
-                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(twoSf(d[colName])) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)])) // Display data
+                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(twoSf(d[colName])) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)]) + "<br>Withdrawal due to Irrigation: " + commaFormat(twoSf(d["irrigation_water_withdrawal"])) + "<br>Withdrawal due to Aquaculture: " + commaFormat(twoSf(d["water_withdrawal_for_aquaculture"])) + "<br>Withdrawal due to Livestock<br>(watering and cleaning): " + commaFormat(twoSf(d["water_withdrawal_for_livestock_watering_cleaning"]))) // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
                 
