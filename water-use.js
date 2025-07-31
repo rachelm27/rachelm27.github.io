@@ -92,11 +92,11 @@ async function page2() {
             note: {
                 label: "Agriculture peaks in contribution to total water withdrawals for the year at 71.92%.",
                 title: "2015",
-                wrap: 215
+                wrap: 220
             },
             //can use x, y directly instead of data
             data: { Year: 2015, Water: 2868.595211247 },
-            dy: 25,
+            dy: 50,
             dx: -1,
             subject: {
                 radius: 7,
