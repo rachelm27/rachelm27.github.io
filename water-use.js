@@ -31,6 +31,9 @@ async function page2() {
         // https://observablehq.com/@d3/color-schemes
         const colors = ["#4269d0","#ff725c","#6cc5b0"]
 
+        var testYearData = worldData.filter(d => d.Year === 2000);
+        console.log(testYearData);
+
         function getPercentTotal(colName, year) {
             var yearData = worldData.filter(d => d.Year === year);
             console.log(yearData);
