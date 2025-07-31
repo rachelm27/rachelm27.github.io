@@ -49,46 +49,43 @@ async function page2() {
 
 
         // ANNOTATIONS
-        // const type = d3.annotationCalloutCircle
+        const type = d3.annotationCalloutCircle
 
-        // const annotations = [{
-        //     note: {
-        //         label: "Agriculture is the 2nd leading sector in GHG emissions, contributing to 14.91% of total emissions for the year.",
-        //         title: "1990",
-        //         wrap: 215
-        //     },
-        //     //can use x, y directly instead of data
-        //     data: { Year: 1990, Emissions: 4975520300 },
-        //     // x: 200,
-        //     // y: 200,
-        //     dy: -175,
-        //     dx: 25,
-        //     subject: {
-        //         radius: 7,
-        //         radiusPadding: 3
-        //     }
-        // }]
+        const annotations = [{
+            note: {
+                label: "Agriculture experiences a 4.84% water use increase (+120.4 billion cubic meters)--the largest increase within a year.",
+                title: "2005-2006",
+                wrap: 215
+            },
+            data: { Year: 2005.5, Water: 2500 },
+            dy: 100,
+            dx: 0,
+            subject: {
+                radius: 30,
+                radiusPadding: 3
+            }
+        }]
 
-        // const make1 = d3.annotation()
-        //     .editMode(false)
-        //     .notePadding(5)
-        //     .type(type)
-        //     .accessors({
-        //         x: d => x(d.Year),
-        //         y: d => y(d.Emissions)
-        //     })
-        //     .accessorsInverse({
-        //         year: d => x.invert(d.x),
-        //         emissions: d => y.invert(d.y)
-        //     })
-        //     .annotations(annotations)
+        const make1 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type)
+            .accessors({
+                x: d => x(d.Year),
+                y: d => y(d.Water)
+            })
+            .accessorsInverse({
+                year: d => x.invert(d.x),
+                emissions: d => y.invert(d.y)
+            })
+            .annotations(annotations)
 
-        // d3.select("svg")
-        // .append("g")
-        // .attr("transform","translate(50,50)")
-        // .attr("class", "annotation-group")
-        // .style("font-size", "12px")
-        // .call(make1)
+        d3.select("svg")
+        .append("g")
+        .attr("transform","translate(50,50)")
+        .attr("class", "annotation-group")
+        .style("font-size", "12px")
+        .call(make1)
         
 
         // const annotations2 = [{
