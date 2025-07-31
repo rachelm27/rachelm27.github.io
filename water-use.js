@@ -251,7 +251,7 @@ async function page2() {
                 tooltip.transition()
                     .duration(100)
                     .style("opacity", 1);
-                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(d[colName]) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)])) // Display data
+                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + twoSf(commaFormat(d[colName])) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)])) // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
                 
