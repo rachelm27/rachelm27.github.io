@@ -38,15 +38,15 @@ async function page2() {
             const yearData = worldData.filter(d => d.Year === year);
 
             if (colName === "agricultural_water_withdrawal") {
-                // console.log(yearData.agricultural_water_withdrawal_as_percent_of_total_water_withdrawal);
+                console.log(yearData.agricultural_water_withdrawal_as_percent_of_total_water_withdrawal);
                 // return yearData["agricultural_water_withdrawal_as_percent_of_total_water_withdrawal"];
                 return yearData.agricultural_water_withdrawal_as_percent_of_total_water_withdrawal;
             } else if (colName === "industrial_water_withdrawal") {
-                // console.log(yearData.industrial_water_withdrawal_as_percent_of_total_water_withdrawal);
+                console.log(yearData.industrial_water_withdrawal_as_percent_of_total_water_withdrawal);
                 // return yearData["industrial_water_withdrawal_as_percent_of_total_water_withdrawal"];
                 return yearData.industrial_water_withdrawal_as_percent_of_total_water_withdrawal;
             } else if (colName === "municipal_water_withdrawal") {
-                // console.log(yearData.municipal_water_withdrawal_as_percent_of_total_withdrawal);
+                console.log(yearData.municipal_water_withdrawal_as_percent_of_total_withdrawal);
                 // return yearData["municipal_water_withdrawal_as_percent_of_total_withdrawal"];
                 return yearData.municipal_water_withdrawal_as_percent_of_total_withdrawal;
             }
