@@ -55,7 +55,7 @@ async function page2() {
             note: {
                 label: "Agriculture experiences a 4.84% water use increase (+120.4 billion cubic meters)--the largest increase within a year.",
                 title: "2005-2006",
-                wrap: 215
+                wrap: 180
             },
             data: { Year: 2005.5, Water: 2540 },
             dy: 70,
