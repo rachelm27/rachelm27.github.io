@@ -76,7 +76,7 @@ async function page2() {
             })
             .accessorsInverse({
                 year: d => x.invert(d.x),
-                emissions: d => y.invert(d.y)
+                water: d => y.invert(d.y)
             })
             .annotations(annotations)
 
@@ -88,42 +88,42 @@ async function page2() {
         .call(make1)
         
 
-        // const annotations2 = [{
-        //     note: {
-        //         label: "Agriculture drops to the 3rd leading sector, decreasing its emissions by 1.34% since 1990 (-66.8M tonnes).",
-        //         title: "1993",
-        //         wrap: 215
-        //     },
-        //     //can use x, y directly instead of data
-        //     data: { Year: 1993, Emissions: 4908680000 },
-        //     dy: -25,
-        //     dx: 0,
-        //     subject: {
-        //         radius: 7,
-        //         radiusPadding: 3
-        //     }
-        // }]
+        const annotations2 = [{
+            note: {
+                label: "Agriculture peaks in contribution to total water withdrawals for the year at 71.92%.",
+                title: "2015",
+                wrap: 215
+            },
+            //can use x, y directly instead of data
+            data: { Year: 2015, Water: 2868.595211247 },
+            dy: -25,
+            dx: 0,
+            subject: {
+                radius: 7,
+                radiusPadding: 3
+            }
+        }]
 
-        // const make2 = d3.annotation()
-        //     .editMode(false)
-        //     .notePadding(5)
-        //     .type(type)
-        //     .accessors({
-        //         x: d => x(d.Year),
-        //         y: d => y(d.Emissions)
-        //     })
-        //     .accessorsInverse({
-        //         year: d => x.invert(d.x),
-        //         emissions: d => y.invert(d.y)
-        //     })
-        //     .annotations(annotations2)
+        const make2 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type)
+            .accessors({
+                x: d => x(d.Year),
+                y: d => y(d.Water)
+            })
+            .accessorsInverse({
+                year: d => x.invert(d.x),
+                water: d => y.invert(d.y)
+            })
+            .annotations(annotations2)
 
-        // d3.select("svg")
-        // .append("g")
-        // .attr("transform","translate(50,50)")
-        // .attr("class", "annotation-group")
-        // .style("font-size", "12px")
-        // .call(make2)
+        d3.select("svg")
+        .append("g")
+        .attr("transform","translate(50,50)")
+        .attr("class", "annotation-group")
+        .style("font-size", "12px")
+        .call(make2)
 
         // const annotations3 = [{
         //     note: {
