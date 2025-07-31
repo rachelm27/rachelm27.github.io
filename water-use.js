@@ -125,42 +125,42 @@ async function page2() {
         .style("font-size", "12px")
         .call(make2)
 
-        // const annotations3 = [{
-        //     note: {
-        //         label: "Agriculture drops to the 4th leading sector, but increased its emissions by 10.46% since 1993 (+513.3M tonnes).",
-        //         title: "2007",
-        //         wrap: 215
-        //     },
-        //     //can use x, y directly instead of data
-        //     data: { Year: 2007, Emissions: 5422060000 },
-        //     dy: -75,
-        //     dx: 0,
-        //     subject: {
-        //         radius: 7,
-        //         radiusPadding: 3
-        //     }
-        // }]
+        const annotations3 = [{
+            note: {
+                label: "Agriculture peaks in water use at 2889.83 billion cubic meters (22.2% increase from 2000).",
+                title: "2019",
+                wrap: 215
+            },
+            //can use x, y directly instead of data
+            data: { Year: 2019, Water: 2889.827122122 },
+            dy: 70,
+            dx: -1,
+            subject: {
+                radius: 7,
+                radiusPadding: 3
+            }
+        }]
 
-        // const make3 = d3.annotation()
-        //     .editMode(false)
-        //     .notePadding(5)
-        //     .type(type)
-        //     .accessors({
-        //         x: d => x(d.Year),
-        //         y: d => y(d.Emissions)
-        //     })
-        //     .accessorsInverse({
-        //         year: d => x.invert(d.x),
-        //         emissions: d => y.invert(d.y)
-        //     })
-        //     .annotations(annotations3)
+        const make3 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type)
+            .accessors({
+                x: d => x(d.Year),
+                y: d => y(d.Water)
+            })
+            .accessorsInverse({
+                year: d => x.invert(d.x),
+                water: d => y.invert(d.y)
+            })
+            .annotations(annotations3)
 
-        // d3.select("svg")
-        // .append("g")
-        // .attr("transform","translate(50,50)")
-        // .attr("class", "annotation-group")
-        // .style("font-size", "12px")
-        // .call(make3)
+        d3.select("svg")
+        .append("g")
+        .attr("transform","translate(50,50)")
+        .attr("class", "annotation-group")
+        .style("font-size", "12px")
+        .call(make3)
 
         // const annotations4 = [{
         //     note: {
