@@ -133,7 +133,7 @@ async function page2() {
             },
             //can use x, y directly instead of data
             data: { Year: 2019, Water: 2889.827122122 },
-            dy: 70,
+            dy: 120,
             dx: -1,
             subject: {
                 radius: 7,
