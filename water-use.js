@@ -1,5 +1,5 @@
 async function page2() {
-    document.getElementById("chart-title").innerHTML = "Section 2:";
+    document.getElementById("chart-title").innerHTML = "Section 2: Worldwide Water Withdrawal by Sector";
     var data = d3.csv("water-use-by-sector.csv", function(d) {
     d.Year = +d.Year;
     d.agricultural_water_withdrawal = +d.agricultural_water_withdrawal;
@@ -30,7 +30,19 @@ async function page2() {
         const withdrawalCols = ["agricultural_water_withdrawal", "industrial_water_withdrawal", "municipal_water_withdrawal"]
         // https://observablehq.com/@d3/color-schemes
         const colors = ["#4269d0","#ff725c","#6cc5b0"]
-        
+
+        function getPercentTotal(colName, year) {
+            var yearData = worldData.filter(d => d.Year === year);
+            
+            if (colName === "agricultural_water_withdrawal") {
+                return yearData.agricultural_water_withdrawal_as_percent_of_total_water_withdrawal;
+            } else if (colName === "industrial_water_withdrawal") {
+                return yearData.industrial_water_withdrawal_as_percent_of_total_water_withdrawal;
+            } else if (colName === "municipal_water_withdrawal") {
+                return yearData.municipal_water_withdrawal_as_percent_of_total_withdrawal;
+            }
+        }
+
         var idx = 0;
         
         var tooltip = d3.select("body").append("div")
@@ -236,7 +248,7 @@ async function page2() {
                 tooltip.transition()
                     .duration(100)
                     .style("opacity", 1);
-                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(d[colName]) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>") // Display data
+                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(d[colName]) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + getPercentTotal(colName, d.Year)) // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
                 
@@ -331,3 +343,4 @@ async function page2() {
             .style("font-size", "14px");
     });
 }
+
