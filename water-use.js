@@ -96,8 +96,8 @@ async function page2() {
             },
             //can use x, y directly instead of data
             data: { Year: 2015, Water: 2868.595211247 },
-            dy: -25,
-            dx: 0,
+            dy: 25,
+            dx: -1,
             subject: {
                 radius: 7,
                 radiusPadding: 3
@@ -240,9 +240,16 @@ async function page2() {
                 tooltip.transition()
                     .duration(100)
                     .style("opacity", 1);
-                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(twoSf(d[colName])) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)]) + "<br><br><strong>Withdrawal due to Irrigation: </strong>" + commaFormat(twoSf(d["irrigation_water_withdrawal"])) + " billion cubic meters<br><strong>Withdrawal due to Aquaculture: </strong>" + commaFormat(twoSf(d["water_withdrawal_for_aquaculture"])) + " billion cubic meters<br><strong>Withdrawal due to Livestock: </strong>" + commaFormat(twoSf(d["water_withdrawal_for_livestock_watering_cleaning"])) + "  billion cubic meters") // Display data
-                .style("left", (d3.event.pageX + 10) + "px")
-                .style("top", (d3.event.pageY - 15) + "px");
+                if (colName === "agricultural_water_withdrawal") {
+                    tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(twoSf(d[colName])) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)]) + "<br><br><strong>Withdrawal due to Irrigation: </strong>" + commaFormat(twoSf(d["irrigation_water_withdrawal"])) + " billion cubic meters<br><strong>Withdrawal due to Aquaculture: </strong>" + commaFormat(twoSf(d["water_withdrawal_for_aquaculture"])) + " billion cubic meters<br><strong>Withdrawal due to Livestock: </strong>" + commaFormat(twoSf(d["water_withdrawal_for_livestock_watering_cleaning"])) + "  billion cubic meters") // Display data
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY - 15) + "px");
+                } else {
+                    tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(twoSf(d[colName])) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + twoSf(d[getPercentTotal(colName, d.Year)])) // Display data
+                    .style("left", (d3.event.pageX + 10) + "px")
+                    .style("top", (d3.event.pageY - 15) + "px");
+                }
+                
                 
             });
 
