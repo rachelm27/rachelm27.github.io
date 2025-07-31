@@ -162,44 +162,6 @@ async function page2() {
         .style("font-size", "12px")
         .call(make3)
 
-        // const annotations4 = [{
-        //     note: {
-        //         label: "Agriculture contributes to 11.6% of total emissions for the year, and has 17.86% (888.5M) more emissions than in 1990.",
-        //         title: "2021",
-        //         wrap: 215
-        //     },
-        //     //can use x, y directly instead of data
-        //     data: { Year: 2021, Emissions: 5864000000 },
-        //     dy: -150,
-        //     dx: -1,
-        //     subject: {
-        //         radius: 7,
-        //         radiusPadding: 3
-        //     }
-        // }]
-
-        // const make4 = d3.annotation()
-        //     .editMode(false)
-        //     .notePadding(5)
-        //     .type(type)
-        //     .accessors({
-        //         x: d => x(d.Year),
-        //         y: d => y(d.Emissions)
-        //     })
-        //     .accessorsInverse({
-        //         year: d => x.invert(d.x),
-        //         emissions: d => y.invert(d.y)
-        //     })
-        //     .annotations(annotations4)
-
-        // d3.select("svg")
-        // .append("g")
-        // .attr("transform","translate(50,50)")
-        // .attr("class", "annotation-group")
-        // .style("font-size", "12px")
-        // .call(make4)
-
-
 
         // GRAPH
         withdrawalCols.forEach(function(colName) { 

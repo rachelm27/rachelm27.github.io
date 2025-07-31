@@ -2,19 +2,19 @@ async function page1() {
     document.getElementById("prev").disabled = true;
     document.getElementById("chart-title").innerHTML = "Section 1: Worldwide Greenhouse Gas Emissions by Sector";
     var data = d3.csv("https://ourworldindata.org/grapher/ghg-emissions-by-sector.csv?v=1&csvType=full&useColumnShortNames=true", function(d) {
-    d.Year = +d.Year;
-    d.agriculture_ghg_emissions = +d.agriculture_ghg_emissions;
-    d.land_use_change_and_forestry_ghg_emissions = +d.land_use_change_and_forestry_ghg_emissions;
-    d.waste_ghg_emissions = +d.waste_ghg_emissions;
-    d.buildings_ghg_emissions = +d.buildings_ghg_emissions;
-    d.industry_ghg_emissions = +d.industry_ghg_emissions;
-    d.manufacturing_and_construction_ghg_emissions = +d.manufacturing_and_construction_ghg_emissions;
-    d.transport_ghg_emissions = +d.transport_ghg_emissions;
-    d.electricity_and_heat_ghg_emissions = +d.electricity_and_heat_ghg_emissions;
-    d.fugitive_ghg_emissions = +d.fugitive_ghg_emissions;
-    d.other_fuel_combustion_ghg_emissions = +d.other_fuel_combustion_ghg_emissions;
-    d.aviation_and_shipping_ghg_emissions = +d.aviation_and_shipping_ghg_emissions;
-    return d;
+        d.Year = +d.Year;
+        d.agriculture_ghg_emissions = +d.agriculture_ghg_emissions;
+        d.land_use_change_and_forestry_ghg_emissions = +d.land_use_change_and_forestry_ghg_emissions;
+        d.waste_ghg_emissions = +d.waste_ghg_emissions;
+        d.buildings_ghg_emissions = +d.buildings_ghg_emissions;
+        d.industry_ghg_emissions = +d.industry_ghg_emissions;
+        d.manufacturing_and_construction_ghg_emissions = +d.manufacturing_and_construction_ghg_emissions;
+        d.transport_ghg_emissions = +d.transport_ghg_emissions;
+        d.electricity_and_heat_ghg_emissions = +d.electricity_and_heat_ghg_emissions;
+        d.fugitive_ghg_emissions = +d.fugitive_ghg_emissions;
+        d.other_fuel_combustion_ghg_emissions = +d.other_fuel_combustion_ghg_emissions;
+        d.aviation_and_shipping_ghg_emissions = +d.aviation_and_shipping_ghg_emissions;
+        return d;
     }).then(function(data) {
         console.log(data);
         
