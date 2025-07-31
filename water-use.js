@@ -38,17 +38,11 @@ async function page2() {
             const yearData = worldData.filter(d => d.Year === year);
 
             if (colName === "agricultural_water_withdrawal") {
-                console.log(yearData.agricultural_water_withdrawal_as_percent_of_total_water_withdrawal);
-                // return yearData["agricultural_water_withdrawal_as_percent_of_total_water_withdrawal"];
-                return yearData.agricultural_water_withdrawal_as_percent_of_total_water_withdrawal;
+                return "agricultural_water_withdrawal_as_percent_of_total_water_withdrawal";
             } else if (colName === "industrial_water_withdrawal") {
-                console.log(yearData.industrial_water_withdrawal_as_percent_of_total_water_withdrawal);
-                // return yearData["industrial_water_withdrawal_as_percent_of_total_water_withdrawal"];
-                return yearData.industrial_water_withdrawal_as_percent_of_total_water_withdrawal;
+                return "industrial_water_withdrawal_as_percent_of_total_water_withdrawal";
             } else if (colName === "municipal_water_withdrawal") {
-                console.log(yearData.municipal_water_withdrawal_as_percent_of_total_withdrawal);
-                // return yearData["municipal_water_withdrawal_as_percent_of_total_withdrawal"];
-                return yearData.municipal_water_withdrawal_as_percent_of_total_withdrawal;
+                return "municipal_water_withdrawal_as_percent_of_total_withdrawal";
             }
         }
 
@@ -257,7 +251,7 @@ async function page2() {
                 tooltip.transition()
                     .duration(100)
                     .style("opacity", 1);
-                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(d[colName]) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + getPercentTotal(colName, d.Year)) // Display data
+                tooltip.html("<strong>Year: </strong>" + d.Year + "<br><strong>Water Withdrawal: </strong>" + commaFormat(d[colName]) + " billion cubic meters<br><strong>% of Total Year Withdrawal: </strong>" + d[getPercentTotal(colName, d.Year)]) // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
                 
