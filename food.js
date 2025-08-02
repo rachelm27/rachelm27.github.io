@@ -12,7 +12,7 @@ async function page3() {
         var x = d3.scaleLinear().domain([0,100]).range([0,750]);
         var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
-        var categories = ["Fruits, Grains, Meats/Animal Products, Sugars, Vegetables, Dairy, Nuts, Legumes, Other"]
+        var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
         // https://observablehq.com/@d3/color-schemes
         const colors = ["#4269d0","#efb118","#ff725c","#6cc5b0","#3ca951","#ff8ab7","#a463f2","#97bbf5"]
         const hoverColors = ["#294798ff","#b58303ff","#c3503fff","#549e8cff","#2b873dff","#c35e84ff","#773bc1ff","#6086c3ff"]
@@ -21,9 +21,9 @@ async function page3() {
             const curData = data.filter(d => d.Entity === entity);
             // console.log(curData);
             for (let i = 0; i < 9; i++) {
-                console.log(curData.Category);
+                console.log(curData[0].Category);
                 console.log(categories[i]);
-                if (curData.Category === categories[i]) {
+                if (curData[0].Category === categories[i]) {
                     return [colors[i], hoverColors[i]];
                 };
             }
