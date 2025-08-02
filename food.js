@@ -22,7 +22,19 @@ async function page3() {
             // console.log(curData);
             for (let i = 0; i < 9; i++) {
                 if (curData[0].Category === categories[i]) {
-                    return [colors[i], hoverColors[i]];
+                    console.log(categories[i]);
+                    return colors[i];
+                };
+            }
+        }
+
+        function assignHover(entity) {
+            const curData = data.filter(d => d.Entity === entity);
+            // console.log(curData);
+            for (let i = 0; i < 9; i++) {
+                if (curData[0].Category === categories[i]) {
+                    console.log(categories[i]);
+                    return hoverColors[i];
                 };
             }
         }
@@ -51,14 +63,14 @@ async function page3() {
             .attr("y", function(d) { return y(d.Entity); })
             .attr("width", function(d) { return x(d.emissions_per_kilogram); })
             .attr("height", y.bandwidth() )
-            .attr("fill", function(d) { return assignColor(d.Entity)[0]; });
+            .attr("fill", function(d) { return assignColor(d.Entity); });
         
         
         bars.on('mouseover', function(d, i) {
             d3.select(this)
                 .transition()
                 .duration(100)
-                .attr("fill", assignColor(d.Entity)[1]);
+                .attr("fill", assignHover(d.Entity));
 
             tooltip.transition()
                 .duration(100)
@@ -74,7 +86,7 @@ async function page3() {
             d3.select(this)
                 .transition()
                 .duration(200)
-                .attr("fill", assignColor(d.Entity)[0]);
+                .attr("fill", assignColor(d.Entity));
 
             tooltip.transition()
                 .duration(200)
