@@ -9,7 +9,7 @@ async function page3() {
         data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
         console.log(data);
         
-        var x = d3.scaleLinear().domain([0,100]).range([0,800]);
+        var x = d3.scaleLinear().domain([0,100]).range([0,750]);
         var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
         var categories = ["Fruits, Grains, Meats/Animal Products, Sugars, Vegetables, Dairy, Nuts, Legumes, Other"]
@@ -87,7 +87,7 @@ async function page3() {
         d3.select("svg").append("text")
             .attr("class", "title")
             .attr("text-anchor", "end")
-            .attr("x", 550)
+            .attr("x", 750)
             .attr("y", 50)
             .style("font-weight", 500)
             .style("font-size", 12)
@@ -97,7 +97,7 @@ async function page3() {
         d3.select("svg").append("text")
             .attr("class", "x label")
             .attr("text-anchor", "end")
-            .attr("x", 450)
+            .attr("x", 650)
             .attr("y", 500 - 6)
             .text("Greenhouse gas emissions in kilograms");
 
