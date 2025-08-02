@@ -87,8 +87,8 @@ async function page3() {
         d3.select("svg").append("text")
             .attr("class", "title")
             .attr("text-anchor", "end")
-            .attr("x", 750)
-            .attr("y", 50)
+            .attr("x", 650)
+            .attr("y", 30)
             .style("font-weight", 500)
             .style("font-size", 12)
             .text("Hover over points for more details");
@@ -107,7 +107,7 @@ async function page3() {
             .attr("text-anchor", "end")
             .attr("y", 0)
             .attr("dy", ".75em")
-            .attr("x", -100)
+            .attr("x", -300)
             .attr("transform", "rotate(-90)")
             .text("Foods");
         
