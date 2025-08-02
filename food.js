@@ -88,7 +88,7 @@ async function page3() {
             .attr("class", "title")
             .attr("text-anchor", "end")
             .attr("x", 650)
-            .attr("y", 30)
+            .attr("y", 40)
             .style("font-weight", 500)
             .style("font-size", 12)
             .text("Hover over points for more details");
@@ -107,7 +107,7 @@ async function page3() {
             .attr("text-anchor", "end")
             .attr("y", 0)
             .attr("dy", ".75em")
-            .attr("x", -300)
+            .attr("x", -200)
             .attr("transform", "rotate(-90)")
             .text("Foods");
         
