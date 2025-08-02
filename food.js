@@ -48,7 +48,7 @@ async function page3() {
             .attr("y", function(d) { return y(d.Entity); })
             .attr("width", function(d) { return x(d.emissions_per_kilogram); })
             .attr("height", y.bandwidth() )
-            .attr("fill", assignColor(d.Entity)[0]);
+            .attr("fill", function(d) { return assignColor(d.Entity)[0]; });
         
         
         bars.on('mouseover', function(d, i) {
