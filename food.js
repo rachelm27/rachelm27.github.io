@@ -19,9 +19,12 @@ async function page3() {
 
         function assignColor(entity) {
             const curData = data.filter(d => d.Entity === entity);
-            console.log(curData);
+            // console.log(curData);
             for (let i = 0; i < 9; i++) {
-                if (curData.Category === categories[i]) return [colors[i], hoverColors[i]];
+                if (curData.Category === categories[i]) {
+                    console.log([colors[i], hoverColors[i]]);
+                    return [colors[i], hoverColors[i]];
+                };
             }
         }
         
