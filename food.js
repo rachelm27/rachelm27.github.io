@@ -21,6 +21,7 @@ async function page3() {
             const curData = data.filter(d => d.Entity === entity);
             // console.log(curData);
             for (let i = 0; i < 9; i++) {
+                console.log(i);
                 if (curData.Category === categories[i]) {
                     console.log([colors[i], hoverColors[i]]);
                     return [colors[i], hoverColors[i]];
@@ -64,7 +65,7 @@ async function page3() {
             tooltip.transition()
                 .duration(100)
                 .style("opacity", 1);
-            tooltip.html("<strong>GHG Emissions: </strong>" + d.emissions_per_kilogram) // Display data
+            tooltip.html("<strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + "kg") // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
             
@@ -94,7 +95,7 @@ async function page3() {
             .attr("y", 40)
             .style("font-weight", 500)
             .style("font-size", 12)
-            .text("Hover over points for more details");
+            .text("Hover over bars for more details");
 
         // x axis label
         d3.select("svg").append("text")
