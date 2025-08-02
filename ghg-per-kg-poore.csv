@@ -1,0 +1,39 @@
+Entity,Category,Year,emissions_per_kilogram
+Apples,Fruits,2010,0.43
+Bananas,Fruits,2010,0.86
+Barley,Grains,2010,1.18
+Beef (beef herd),Meats/Animal Products,2010,99.48
+Beef (dairy herd),Meats/Animal Products,2010,33.3
+Beet Sugar,Sugars,2010,1.81
+Berries & Grapes,Fruits,2010,1.53
+Brassicas,Vegetables,2010,0.51
+Cane Sugar,Sugars,2010,3.2
+Cassava,Vegetables,2010,1.32
+Cheese,Dairy,2010,23.88
+Citrus Fruit,Fruit,2010,0.39
+Coffee,Other,2010,28.53
+Dark Chocolate,Other,2010,46.65
+Eggs,Meats/Animal Products,2010,4.67
+Fish (farmed),Meats/Animal Products,2010,13.63
+Groundnuts,Nuts,2010,3.23
+Lamb & Mutton,Meats/Animal Products,2010,39.72
+Maize,Vegetables,2010,1.7
+Milk,Dairy,2010,3.15
+Nuts,Nuts,2010,0.43
+Oatmeal,Grains,2010,2.48
+Onions & Leeks,Vegetables,2010,0.5
+Other Fruit,Fruit,2010,1.05
+Other Pulses,Legumes,2010,1.79
+Other Vegetables,Vegetables,2010,0.53
+Peas,Vegetables,2010,0.98
+Pig Meat,Meats/Animal Products,2010,12.31
+Potatoes,Vegetables,2010,0.46
+Poultry Meat,Meats/Animal Products,2010,9.87
+Prawns (farmed),Meats/Animal Products,2010,26.87
+Rice,Grains,2010,4.45
+Root Vegetables,Vegetables,2010,0.43
+Soy milk,Dairy,2010,0.98
+Tofu,Legumes,2010,3.16
+Tomatoes,Fruits,2010,2.09
+Wheat & Rye,Grains,2010,1.57
+Wine,Other,2010,1.79
