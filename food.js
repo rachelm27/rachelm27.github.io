@@ -9,7 +9,7 @@ async function page3() {
         data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
         console.log(data);
         
-        var x = d3.scaleLinear().domain([0,100]).range([400,0]);
+        var x = d3.scaleLinear().domain([0,100]).range([0,400]);
         var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,800]);
         
         var categories = ["Fruits, Grains, Meats/Animal Products, Sugars, Vegetables, Dairy, Nuts, Legumes, Other"]
@@ -19,6 +19,7 @@ async function page3() {
 
         function assignColor(entity) {
             const curData = data.filter(d => d.Entity === entity);
+            console.log(curData);
             for (let i = 0; i < 9; i++) {
                 if (curData.Category === categories[i]) return [colors[i], hoverColors[i]];
             }
@@ -60,7 +61,7 @@ async function page3() {
             tooltip.transition()
                 .duration(100)
                 .style("opacity", 1);
-            tooltip.html("<br><strong>GHG Emissions: </strong>" + d.emissions_per_kilogram) // Display data
+            tooltip.html("<strong>GHG Emissions: </strong>" + d.emissions_per_kilogram) // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
             
