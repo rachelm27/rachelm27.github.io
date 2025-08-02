@@ -21,9 +21,9 @@ async function page3() {
             const curData = data.filter(d => d.Entity === entity);
             // console.log(curData);
             for (let i = 0; i < 9; i++) {
-                console.log(i);
+                console.log(curData.Category);
+                console.log(categories[i]);
                 if (curData.Category === categories[i]) {
-                    console.log([colors[i], hoverColors[i]]);
                     return [colors[i], hoverColors[i]];
                 };
             }
