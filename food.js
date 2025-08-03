@@ -166,7 +166,7 @@ async function page3() {
             label: "All fruits and vegetables use less than 420 liters of water and produce less than 2.1 kilograms of GHG emissions.",
             title: ""
         },
-        data: { Emissions: 0.6, Water: 135 },
+        data: { Emissions: 0.55, Water: 135 },
         dy: 195,
         dx: -19,
         subject: {
@@ -176,7 +176,7 @@ async function page3() {
         }]
 
         const make4 = d3.annotation()
-            .editMode(true)
+            .editMode(false)
             .notePadding(5)
             .type(type2)
             .accessors({
