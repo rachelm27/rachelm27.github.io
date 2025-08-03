@@ -157,7 +157,42 @@ async function page3() {
         .attr("class", "annotation-group")
         .style("font-size", "12px")
         .call(make3)
+        
+        
+        const type2 = d3.annotationCalloutRect
 
+        const annotations4 = [{
+        note: {
+            label: "All fruits and vegetables use less than 420 liters of water and produce less than 2.1 kilograms of GHG emissions.",
+            title: ""
+        },
+        data: { Emissions: 1, Water: 100 },
+        dy: 100,
+        dx: 0,
+        subject: {
+            width: -50,
+            height: 100
+        }
+        }]
+
+        const make4 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type2)
+            .accessors({
+                x: d => x(d.Emissions),
+                y: d => y(d.Water)
+            })
+            .accessorsInverse({
+                Emissions: d => x.invert(d.x),
+                Water: d => y.invert(d.y)
+            })
+            .annotations(annotations4);
+
+        d3.select("svg")
+        .append("g")
+        .attr("class", "annotation-group")
+        .call(make4);
 
 
         // GRAPH 
@@ -204,7 +239,7 @@ async function page3() {
         
         // axes
         d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,300,2000,6000]).tickFormat(d3.format("~s")));
-        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format("~s")));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0.5, 1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format("~s")));
         
         // title
         d3.select("svg").append("text")
