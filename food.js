@@ -87,12 +87,12 @@ async function page3() {
 
         const annotations2 = [{
             note: {
-                label: "Cheese contributes to the highest amount of water use",
+                label: "Cheese contributes to the highest amount of water use.",
                 title: "",
-                wrap: 125
+                wrap: 180
             },
             data: { Emissions: 23.88, Water: 5605.2 },
-            dy: 180,
+            dy: 125,
             dx: 0,
             subject: {
                 radius: 8,
