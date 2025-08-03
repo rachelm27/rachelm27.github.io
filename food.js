@@ -128,8 +128,8 @@ async function page3() {
                 title: "",
                 wrap: 200
             },
-            data: { Emissions: 7.27, Water: 618.85 },
-            dy: 125,
+            data: { Emissions: 6.8, Water: 618.85 },
+            dy: 225,
             dx: 0,
             subject: {
                 radius: 50,
