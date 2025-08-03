@@ -95,18 +95,18 @@ async function page3() {
         });
         
         // axes
-        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,2000,6000]).tickFormat(d3.format("~s")));
+        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,500,1000, 2000,6000]).tickFormat(d3.format("~s")));
         d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format("~s")));
         
         // title
         d3.select("svg").append("text")
             .attr("class", "title")
             .attr("text-anchor", "end")
-            .attr("x", 650)
+            .attr("x", 550)
             .attr("y", 40)
             .style("font-weight", 500)
             .style("font-size", 12)
-            .text("Hover over bars for more details");
+            .text("Hover over points for more details");
 
         // x axis label
         d3.select("svg").append("text")
@@ -122,7 +122,7 @@ async function page3() {
             .attr("text-anchor", "end")
             .attr("y", 0)
             .attr("dy", ".75em")
-            .attr("x", -100)
+            .attr("x", -150)
             .attr("transform", "rotate(-90)")
             .text("Water withdrawal in liters");
         
