@@ -1,5 +1,5 @@
 async function page3() {
-    document.getElementById("chart-title").innerHTML = "Section 3: Freshwater Withdrawals vs. Greenhouse Gas Emissions per Kilogram of Food Produced";
+    document.getElementById("chart-title").innerHTML = "Section 3: Freshwater Withdrawals vs. Greenhouse Gas Emissions per Kilogram of Food Produced (2010)";
     var data = d3.csv("ghg-and-water-withdrawals-per-kg-poore.csv", function(d) {
     d.Year = +d.Year;
     d.emissions_per_kilogram = +d.emissions_per_kilogram;
@@ -50,6 +50,44 @@ async function page3() {
 
 
         // ANNOTATIONS
+        const type = d3.annotationCalloutCircle
+
+        const annotations = [{
+            note: {
+                label: "Cows raised for beef production contribute to the highest amount of greenhouse gases.",
+                // title: "2005-2006",
+                wrap: 200
+            },
+            data: { Emissions: 99.48, Water: 1451.2 },
+            dy: 100,
+            dx: -1,
+            subject: {
+                radius: 8,
+                radiusPadding: 3
+            }
+        }]
+
+        const make1 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type)
+            .accessors({
+                x: d => x(d.emissions_per_kilogram),
+                y: d => y(d.freshwater_withdrawals_per_kilogram)
+            })
+            .accessorsInverse({
+                Emissions: d => x.invert(d.x),
+                water: d => y.invert(d.y)
+            })
+            .annotations(annotations)
+
+        d3.select("svg")
+        .append("g")
+        .attr("transform","translate(50,50)")
+        .attr("class", "annotation-group")
+        .style("font-size", "12px")
+        .call(make1)
+
 
 
         // GRAPH 
