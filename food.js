@@ -53,20 +53,7 @@ async function page3() {
 
 
         // GRAPH 
-        // display bars
-        // var bars = d3.select("svg")
-        //     .append("g")
-        //     .attr("transform","translate(100,50)")
-        //     .selectAll("rect")
-        //     .data(data)
-        //     .enter()
-        //     .append("rect")
-        //     .attr("x", x(0))
-        //     .attr("y", function(d) { return y(d.Entity); })
-        //     .attr("width", function(d) { return x(d.emissions_per_kilogram); })
-        //     .attr("height", y.bandwidth() )
-        //     .attr("fill", function(d) { return assignColor(d.Entity); });
-
+        // display scatterplot
         var points = d3.select("svg")
             .append("g")
             .attr("transform","translate(50,50)")
@@ -76,7 +63,7 @@ async function page3() {
             .append("circle")
             .attr("cx", function(d) { return x(d.emissions_per_kilogram); })
             .attr("cy", function(d) { return y(d.freshwater_withdrawals_per_kilogram); })
-            .attr("r", 7)
+            .attr("r", 5)
             .attr("fill", function(d) { return assignColor(d.Entity); });
         
         
@@ -108,8 +95,8 @@ async function page3() {
         });
         
         // axes
-        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000]));
-        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 30, 40 , 50, 60, 70, 80, 90, 100]));
+        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,2000,6000]).tickFormat(d3.format("~s")));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
         
         // title
         d3.select("svg").append("text")
