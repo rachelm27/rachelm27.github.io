@@ -1,8 +1,9 @@
 async function page3() {
-    document.getElementById("chart-title").innerHTML = "Section 3: Greenhouse Gas Emissions ";
-    var data = d3.csv("ghg-per-kg-poore.csv", function(d) {
+    document.getElementById("chart-title").innerHTML = "Section 3: Freshwater Withdrawals vs. Greenhouse Gas Emissions per Kilogram of Food Produced";
+    var data = d3.csv("ghg-and-water-withdrawals-per-kg-poore.csv", function(d) {
     d.Year = +d.Year;
     d.emissions_per_kilogram = +d.emissions_per_kilogram;
+    d.freshwater_withdrawals_per_kilogram = +d.freshwater_withdrawals_per_kilogram;
     
     return d;
     }).then(function(data) {
@@ -10,7 +11,8 @@ async function page3() {
         console.log(data);
         
         var x = d3.scaleLinear().domain([0,100]).range([0,750]);
-        var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
+        var y = d3.scaleLinear().domain([0,6000]).range([0,750]);
+        // var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
         var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
         // https://observablehq.com/@d3/color-schemes
@@ -52,21 +54,33 @@ async function page3() {
 
         // GRAPH 
         // display bars
-        var bars = d3.select("svg")
+        // var bars = d3.select("svg")
+        //     .append("g")
+        //     .attr("transform","translate(100,50)")
+        //     .selectAll("rect")
+        //     .data(data)
+        //     .enter()
+        //     .append("rect")
+        //     .attr("x", x(0))
+        //     .attr("y", function(d) { return y(d.Entity); })
+        //     .attr("width", function(d) { return x(d.emissions_per_kilogram); })
+        //     .attr("height", y.bandwidth() )
+        //     .attr("fill", function(d) { return assignColor(d.Entity); });
+
+        var points = d3.select("svg")
             .append("g")
-            .attr("transform","translate(100,50)")
-            .selectAll("rect")
+            .attr("transform","translate(50,50)")
+            .selectAll("circle")
             .data(data)
             .enter()
-            .append("rect")
-            .attr("x", x(0))
-            .attr("y", function(d) { return y(d.Entity); })
-            .attr("width", function(d) { return x(d.emissions_per_kilogram); })
-            .attr("height", y.bandwidth() )
+            .append("circle")
+            .attr("cx", function(d) { return x(d.emissions_per_kilogram); })
+            .attr("cy", function(d) { return y(d.freshwater_withdrawals_per_kilogram); })
+            .attr("r", 10)
             .attr("fill", function(d) { return assignColor(d.Entity); });
         
         
-        bars.on('mouseover', function(d, i) {
+        points.on('mouseover', function(d, i) {
             d3.select(this)
                 .transition()
                 .duration(100)
@@ -82,7 +96,7 @@ async function page3() {
             
         });
 
-        bars.on('mouseout', function(d, i) {
+        points.on('mouseout', function(d, i) {
             d3.select(this)
                 .transition()
                 .duration(200)
@@ -94,7 +108,7 @@ async function page3() {
         });
         
         // axes
-        d3.select("svg").append("g").attr("transform","translate(100,50)").call(d3.axisLeft(y));
+        d3.select("svg").append("g").attr("transform","translate(100,50)").call(d3.axisLeft(y).tickValues([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000]));
         d3.select("svg").append("g").attr("transform","translate(100,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 30, 40 , 50, 60, 70, 80, 90, 100]));
         
         // title
@@ -121,9 +135,9 @@ async function page3() {
             .attr("text-anchor", "end")
             .attr("y", 0)
             .attr("dy", ".75em")
-            .attr("x", -200)
+            .attr("x", -100)
             .attr("transform", "rotate(-90)")
-            .text("Foods");
+            .text("Water withdrawal in liters");
         
         //legend
         var legend = d3.select("#legend")
