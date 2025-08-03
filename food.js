@@ -192,6 +192,7 @@ async function page3() {
         d3.select("svg")
         .append("g")
         .attr("class", "annotation-group")
+        .style("font-size", "12px")
         .call(make4);
 
 
