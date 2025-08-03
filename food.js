@@ -108,8 +108,8 @@ async function page3() {
         });
         
         // axes
-        d3.select("svg").append("g").attr("transform","translate(100,50)").call(d3.axisLeft(y).tickValues([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000]));
-        d3.select("svg").append("g").attr("transform","translate(100,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 30, 40 , 50, 60, 70, 80, 90, 100]));
+        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000]));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 30, 40 , 50, 60, 70, 80, 90, 100]));
         
         // title
         d3.select("svg").append("text")
