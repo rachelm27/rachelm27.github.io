@@ -11,7 +11,7 @@ async function page3() {
         console.log(data);
         
         var x = d3.scaleLinear().domain([0,100]).range([0,750]);
-        var y = d3.scaleLinear().domain([0,6000]).range([750,0]);
+        var y = d3.scaleLinear().domain([0,6000]).range([400,0]);
         // var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
         var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
