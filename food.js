@@ -167,11 +167,11 @@ async function page3() {
             title: ""
         },
         data: { Emissions: 1, Water: 100 },
-        dy: 100,
-        dx: 0,
+        dy: 195,
+        dx: -19,
         subject: {
-            width: 200,
-            height: 200
+            width: 205,
+            height: 318
         }
         }]
 
