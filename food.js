@@ -166,7 +166,7 @@ async function page3() {
             label: "All fruits and vegetables use less than 420 liters of water and produce less than 2.1 kilograms of GHG emissions.",
             title: ""
         },
-        data: { Emissions: 1, Water: 100 },
+        data: { Emissions: 0.75, Water: 150 },
         dy: 195,
         dx: -19,
         subject: {
