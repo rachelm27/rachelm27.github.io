@@ -125,31 +125,30 @@ async function page3() {
             .attr("transform", "rotate(-90)")
             .text("Foods");
         
-    //     //legend
-    //     var legend = d3.select("#legend")
-    //     var keys = ["Agriculture", "Industrial", "Municipal"];
+        //legend
+        var legend = d3.select("#legend")
 
-    //     legend.selectAll("dots")
-    //     .data(keys)
-    //     .enter()
-    //     .append("circle")
-    //         .attr("cx", 50)
-    //         .attr("cy", function(d,i){ return 50 + i*25})
-    //         .attr("r", 7)
-    //         .style("fill", function(d, i){ return colors[i]})
-    //         .style("cursor", "default");
+        legend.selectAll("dots")
+        .data(categories)
+        .enter()
+        .append("circle")
+            .attr("cx", 50)
+            .attr("cy", function(d,i){ return 50 + i*25})
+            .attr("r", 7)
+            .style("fill", function(d, i){ return colors[i]})
+            .style("cursor", "default");
 
-    //     legend.selectAll("labels")
-    //     .data(keys)
-    //     .enter()
-    //     .append("text")
-    //         .attr("x", 70)
-    //         .attr("y", function(d,i){ return 50 + i*25})
-    //         .style("fill", function(d, i){ return colors[i]})
-    //         .text(function(d){ return d})
-    //         .attr("text-anchor", "left")
-    //         .style("alignment-baseline", "middle")
-    //         .style("font-size", "14px");
+        legend.selectAll("labels")
+        .data(categories)
+        .enter()
+        .append("text")
+            .attr("x", 70)
+            .attr("y", function(d,i){ return 50 + i*25})
+            .style("fill", function(d, i){ return colors[i]})
+            .text(function(d){ return d})
+            .attr("text-anchor", "left")
+            .style("alignment-baseline", "middle")
+            .style("font-size", "14px");
     });
 }
 
