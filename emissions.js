@@ -2,7 +2,7 @@ async function page1() {
     document.getElementById("prev").disabled = true;
     document.getElementById("chart-title").innerHTML = "Section 1: Worldwide Greenhouse Gas Emissions by Sector";
     document.getElementById("link").setAttribute("href", "https://ourworldindata.org/grapher/ghg-emissions-by-sector?tab=discrete-bar&time=2021");
-    document.getElementById("link").innerHTML = "FAO AQUASTAT Dissemination System";
+    document.getElementById("link").innerHTML = "Climate Watch (2024) – with major processing by Our World in Data";
 
     var data = d3.csv("https://ourworldindata.org/grapher/ghg-emissions-by-sector.csv?v=1&csvType=full&useColumnShortNames=true", function(d) {
         d.Year = +d.Year;
