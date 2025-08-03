@@ -21,10 +21,8 @@ async function page3() {
 
         function assignColor(entity) {
             const curData = data.filter(d => d.Entity === entity);
-            // console.log(curData);
             for (let i = 0; i < 9; i++) {
                 if (curData[0].Category === categories[i]) {
-                    console.log(categories[i]);
                     return colors[i];
                 };
             }
@@ -32,10 +30,8 @@ async function page3() {
 
         function assignHover(entity) {
             const curData = data.filter(d => d.Entity === entity);
-            // console.log(curData);
             for (let i = 0; i < 9; i++) {
                 if (curData[0].Category === categories[i]) {
-                    console.log(categories[i]);
                     return hoverColors[i];
                 };
             }
@@ -77,7 +73,7 @@ async function page3() {
             })
             .accessorsInverse({
                 Emissions: d => x.invert(d.x),
-                water: d => y.invert(d.y)
+                Water: d => y.invert(d.y)
             })
             .annotations(annotations)
 
