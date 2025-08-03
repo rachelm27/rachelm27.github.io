@@ -76,7 +76,7 @@ async function page3() {
             tooltip.transition()
                 .duration(100)
                 .style("opacity", 1);
-            tooltip.html("<strong>Food: " + d.Entity + "<br><strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + " kilograms<br><strong>Water Withdrawal: " + d.freshwater_withdrawals_per_kilogram + " liters") // Display data
+            tooltip.html("<strong>Food: </strong>" + d.Entity + "<br><strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + " kilograms<br><strong>Water Withdrawal: " + d.freshwater_withdrawals_per_kilogram + " liters") // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
             
