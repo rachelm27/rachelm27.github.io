@@ -14,8 +14,8 @@ async function page3() {
         
         var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
         // https://observablehq.com/@d3/color-schemes
-        const colors = ["#ff725c","#efb118","#97bbf5","#6cc5b0","#3ca951","#ff8ab7","#a463f2","#4269d0", "#ed313aff"]
-        const hoverColors = ["#c3503fff","#b58303ff","#6086c3ff","#549e8cff","#2b873dff","#c35e84ff","#773bc1ff","#294798ff", "#ba242bff"]
+        const colors = ["#ed313aff","#efb118","#97bbf5","#6cc5b0","#3ca951","#ff8ab7","#a463f2","#4269d0", "#ff725c"]
+        const hoverColors = ["#ba242bff","#b58303ff","#6086c3ff","#549e8cff","#2b873dff","#c35e84ff","#773bc1ff","#294798ff", "#c3503fff"]
 
         function assignColor(entity) {
             const curData = data.filter(d => d.Entity === entity);
