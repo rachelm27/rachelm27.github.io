@@ -55,7 +55,7 @@ async function page3() {
         const annotations = [{
             note: {
                 label: "Cows raised for beef production contribute to the highest amount of greenhouse gases.",
-                // title: "2005-2006",
+                title: "",
                 wrap: 200
             },
             data: { Emissions: 99.48, Water: 1451.2 },
