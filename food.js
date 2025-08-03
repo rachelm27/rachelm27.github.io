@@ -55,7 +55,7 @@ async function page3() {
                 wrap: 200
             },
             data: { Emissions: 99.48, Water: 1451.2 },
-            dy: 100,
+            dy: 50,
             dx: -1,
             subject: {
                 radius: 8,
