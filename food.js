@@ -10,8 +10,8 @@ async function page3() {
         data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
         console.log(data);
         
-        var x = d3.scaleLog().domain([0,100]).range([0,750]);
-        var y = d3.scaleLog().domain([0,6000]).range([400,0]);
+        var x = d3.scaleLinear().domain([0,100]).range([0,750]);
+        var y = d3.scaleLinear().domain([0,6000]).range([400,0]);
         // var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
         var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
@@ -76,7 +76,7 @@ async function page3() {
             .append("circle")
             .attr("cx", function(d) { return x(d.emissions_per_kilogram); })
             .attr("cy", function(d) { return y(d.freshwater_withdrawals_per_kilogram); })
-            .attr("r", 10)
+            .attr("r", 7)
             .attr("fill", function(d) { return assignColor(d.Entity); });
         
         
@@ -108,8 +108,8 @@ async function page3() {
         });
         
         // axes
-        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([0, 500, 1000, 3000, 5800]));
-        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 50, 100]));
+        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([0, 500, 1000, 1500, 2000, 2500, 3000, 3500, 4000, 4500, 5000, 5500, 6000]));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 30, 40 , 50, 60, 70, 80, 90, 100]));
         
         // title
         d3.select("svg").append("text")
