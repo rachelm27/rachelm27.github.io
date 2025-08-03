@@ -68,8 +68,8 @@ async function page3() {
             .notePadding(5)
             .type(type)
             .accessors({
-                x: d => x(d.emissions_per_kilogram),
-                y: d => y(d.freshwater_withdrawals_per_kilogram)
+                x: d => x(d.Emissions),
+                y: d => y(d.Water)
             })
             .accessorsInverse({
                 Emissions: d => x.invert(d.x),
