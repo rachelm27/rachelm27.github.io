@@ -55,7 +55,7 @@ async function page3() {
                 wrap: 200
             },
             data: { Emissions: 99.48, Water: 1451.2 },
-            dy: 50,
+            dy: 75,
             dx: -1,
             subject: {
                 radius: 8,
@@ -83,6 +83,43 @@ async function page3() {
         .attr("class", "annotation-group")
         .style("font-size", "12px")
         .call(make1)
+
+
+        const annotations2 = [{
+            note: {
+                label: "Cheese contributes to the highest amount of water use",
+                title: "",
+                wrap: 200
+            },
+            data: { Emissions: 23.88, Water: 5605.2 },
+            dy: 200,
+            dx: 0,
+            subject: {
+                radius: 8,
+                radiusPadding: 3
+            }
+        }]
+
+        const make2 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type)
+            .accessors({
+                x: d => x(d.Emissions),
+                y: d => y(d.Water)
+            })
+            .accessorsInverse({
+                Emissions: d => x.invert(d.x),
+                Water: d => y.invert(d.y)
+            })
+            .annotations(annotations2)
+
+        d3.select("svg")
+        .append("g")
+        .attr("transform","translate(50,50)")
+        .attr("class", "annotation-group")
+        .style("font-size", "12px")
+        .call(make2)
 
 
 
