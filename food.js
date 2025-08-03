@@ -10,8 +10,8 @@ async function page3() {
         data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
         console.log(data);
         
-        var x = d3.scaleLinear().domain([0,100]).range([0,750]);
-        var y = d3.scaleLinear().domain([0,6000]).range([400,0]);
+        var x = d3.scaleLog().domain([0.1,100]).range([0,750]);
+        var y = d3.scaleLog().domain([0.1,6000]).range([400,0]);
         // var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
         var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
