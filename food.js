@@ -95,7 +95,7 @@ async function page3() {
         
         // axes
         d3.select("svg").append("g").attr("transform","translate(100,50)").call(d3.axisLeft(y));
-        d3.select("svg").append("g").attr("transform","translate(100,450)").call(d3.axisBottom(x).tickValues([0, 20, 40, 60, 80, 100]));
+        d3.select("svg").append("g").attr("transform","translate(100,450)").call(d3.axisBottom(x).tickValues([0, 10, 20, 30, 40 , 50, 60, 70, 80, 90, 100]));
         
         // title
         d3.select("svg").append("text")
