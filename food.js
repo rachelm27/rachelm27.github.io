@@ -240,7 +240,7 @@ async function page3() {
         
         // axes
         d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,300,2000,6000]).tickFormat(d3.format("~s")));
-        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0.5, 1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format(".2f")));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([0.5, 1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format(".1f")));
         
         // title
         d3.select("svg").append("text")
