@@ -170,8 +170,8 @@ async function page3() {
         dy: 100,
         dx: 0,
         subject: {
-            width: -50,
-            height: 100
+            width: 200,
+            height: 200
         }
         }]
 
