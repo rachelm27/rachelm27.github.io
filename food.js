@@ -122,6 +122,43 @@ async function page3() {
         .call(make2)
 
 
+        const annotations3 = [{
+            note: {
+                label: "Poultry products contribute to the least amount of emissions and water use out of all animal products.",
+                title: "",
+                wrap: 200
+            },
+            data: { Emissions: 7.27, Water: 618.85 },
+            dy: 125,
+            dx: 0,
+            subject: {
+                radius: 50,
+                radiusPadding: 3
+            }
+        }]
+
+        const make3 = d3.annotation()
+            .editMode(false)
+            .notePadding(5)
+            .type(type)
+            .accessors({
+                x: d => x(d.Emissions),
+                y: d => y(d.Water)
+            })
+            .accessorsInverse({
+                Emissions: d => x.invert(d.x),
+                Water: d => y.invert(d.y)
+            })
+            .annotations(annotations3)
+
+        d3.select("svg")
+        .append("g")
+        .attr("transform","translate(50,50)")
+        .attr("class", "annotation-group")
+        .style("font-size", "12px")
+        .call(make3)
+
+
 
         // GRAPH 
         // display scatterplot
