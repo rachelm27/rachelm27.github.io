@@ -89,7 +89,7 @@ async function page3() {
             note: {
                 label: "Cheese contributes to the highest amount of water use.",
                 title: "",
-                wrap: 180
+                wrap: 170
             },
             data: { Emissions: 23.88, Water: 5605.2 },
             dy: 125,
