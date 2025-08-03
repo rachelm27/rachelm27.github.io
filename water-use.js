@@ -1,5 +1,7 @@
 async function page2() {
     document.getElementById("chart-title").innerHTML = "Section 2: Worldwide Water Withdrawal by Sector";
+    document.getElementById("link").setAttribute("href", "https://data.apps.fao.org/aquastat/?lang=en&share=f-24f03fa5-2317-4725-b3c7-6058af4a428c");
+
     var data = d3.csv("water-use-by-sector.csv", function(d) {
     d.Year = +d.Year;
     d.agricultural_water_withdrawal = +d.agricultural_water_withdrawal;

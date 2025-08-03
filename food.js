@@ -1,5 +1,8 @@
 async function page3() {
     document.getElementById("chart-title").innerHTML = "Section 3: Freshwater Withdrawals vs. Greenhouse Gas Emissions per Kilogram of Food Produced (2010)";
+    document.getElementById("link").setAttribute("href", "https://ourworldindata.org/grapher/water-withdrawals-per-kg-poore?country=Apples~Beef+%28dairy+herd%29~Cheese~Fish+%28farmed%29~Milk~Lamb+%26+Mutton~Pig+Meat~Poultry+Meat~Rice~Tomatoes~Wine~Wheat+%26+Rye~Tofu+%28soybeans%29~Root+Vegetables~Potatoes~Peas~Nuts~Maize~Groundnuts~Eggs~Citrus+Fruit~Beef+%28beef+herd%29~Bananas~Prawns+%28farmed%29~Cane+Sugar~Dark+Chocolate~Oatmeal~Other+Pulses~Berries+%26+Grapes~Other+Fruit~Beet+Sugar~Tofu~Brassicas~Other+Vegetables~Soy+milk~Coffee~Barley~Onions+%26+Leeks~Cassava");
+    document.getElementById("link").innerHTML = "Poore, J., & Nemecek, T. (2018) – processed by Our World in Data";
+
     var data = d3.csv("ghg-and-water-withdrawals-per-kg-poore.csv", function(d) {
     d.Year = +d.Year;
     d.emissions_per_kilogram = +d.emissions_per_kilogram;
