@@ -176,7 +176,7 @@ async function page3() {
         }]
 
         const make4 = d3.annotation()
-            .editMode(false)
+            .editMode(true)
             .notePadding(5)
             .type(type2)
             .accessors({
