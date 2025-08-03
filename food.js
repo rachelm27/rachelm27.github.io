@@ -10,8 +10,8 @@ async function page3() {
         // data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
         console.log(data);
         
-        var x = d3.scaleLog().domain([0.1,100]).range([0,750]);
-        var y = d3.scaleLog().domain([0.1,6000]).range([400,0]);
+        var x = d3.scaleLog().domain([0.1,6000]).range([0,750]);
+        var y = d3.scaleLog().domain([0.1,100]).range([400,0]);
         // var y = d3.scaleBand().domain(data.map(function(d) { return d.Entity; })).range([0,400]).padding(.1);;
         
         var categories = ["Fruits", "Grains", "Meats/Animal Products", "Sugars", "Vegetables", "Dairy", "Nuts", "Legumes", "Other"]
@@ -61,8 +61,8 @@ async function page3() {
             .data(data)
             .enter()
             .append("circle")
-            .attr("cx", function(d) { return x(d.emissions_per_kilogram); })
-            .attr("cy", function(d) { return y(d.freshwater_withdrawals_per_kilogram); })
+            .attr("cx", function(d) { return x(d.freshwater_withdrawals_per_kilogram); })
+            .attr("cy", function(d) { return y(d.emissions_per_kilogram); })
             .attr("r", 5)
             .attr("fill", function(d) { return assignColor(d.Entity); });
         
@@ -76,7 +76,7 @@ async function page3() {
             tooltip.transition()
                 .duration(100)
                 .style("opacity", 1);
-            tooltip.html("<strong>Food: </strong>" + d.Entity + "<br><strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + " kilograms<br><strong>Water Withdrawal: " + d.freshwater_withdrawals_per_kilogram + " liters") // Display data
+            tooltip.html("<strong>Food: </strong>" + d.Entity + "<br><strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + " kilograms<br><strong>Water Withdrawal: </strong>" + d.freshwater_withdrawals_per_kilogram + " liters") // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
             
@@ -95,8 +95,8 @@ async function page3() {
         });
         
         // axes
-        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,500,1000, 2000,6000]).tickFormat(d3.format("~s")));
-        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format("~s")));
+        d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format("~s")));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([10,20,50,100,300,2000,6000]).tickFormat(d3.format("~s")));
         
         // title
         d3.select("svg").append("text")
@@ -114,7 +114,7 @@ async function page3() {
             .attr("text-anchor", "end")
             .attr("x", 650)
             .attr("y", 500 - 6)
-            .text("Greenhouse gas emissions in kilograms");
+            .text("Water withdrawal in liters");
 
         // y axis label
         d3.select("svg").append("text")
@@ -124,7 +124,7 @@ async function page3() {
             .attr("dy", ".75em")
             .attr("x", -150)
             .attr("transform", "rotate(-90)")
-            .text("Water withdrawal in liters");
+            .text("Greenhouse gas emissions in kilograms");
         
         //legend
         var legend = d3.select("#legend")
