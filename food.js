@@ -7,7 +7,7 @@ async function page3() {
     
     return d;
     }).then(function(data) {
-        data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
+        // data.sort((a, b) => d3.descending(a.emissions_per_kilogram, b.emissions_per_kilogram));
         console.log(data);
         
         var x = d3.scaleLog().domain([0.1,100]).range([0,750]);
@@ -76,7 +76,7 @@ async function page3() {
             tooltip.transition()
                 .duration(100)
                 .style("opacity", 1);
-            tooltip.html("<strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + "kg") // Display data
+            tooltip.html("<strong>Food: " + d.Entity + "<br><strong>GHG Emissions: </strong>" + d.emissions_per_kilogram + " kilograms<br><strong>Water Withdrawal: " + d.freshwater_withdrawals_per_kilogram + " liters") // Display data
                 .style("left", (d3.event.pageX + 10) + "px")
                 .style("top", (d3.event.pageY - 15) + "px");
             
@@ -96,7 +96,7 @@ async function page3() {
         
         // axes
         d3.select("svg").append("g").attr("transform","translate(50,50)").call(d3.axisLeft(y).tickValues([10,20,50,100,2000,6000]).tickFormat(d3.format("~s")));
-        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([10,20,50,100]).tickFormat(d3.format("~s")));
+        d3.select("svg").append("g").attr("transform","translate(50,450)").call(d3.axisBottom(x).tickValues([1, 2, 4, 6, 10,20,50,100]).tickFormat(d3.format("~s")));
         
         // title
         d3.select("svg").append("text")
